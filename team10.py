@@ -1,12 +1,12 @@
 ####
 # Each team's file must define four tokens:
-      team_name = 'The Yogurts'
+      team_name = 'The Successors'
      strategy_name: 'Success'
      strategy_description: ' Making a loop so the prisoner could keep trying to escape.'
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'The Yogurts' # Only 10 chars displayed.
+team_name = 'The Successors' # Only 10 chars displayed.
 strategy_name = 'Success'
 strategy_description = '  Making a loop so the prisoner could keep trying to escape.'
     
