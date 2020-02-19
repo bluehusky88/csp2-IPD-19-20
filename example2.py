@@ -7,7 +7,7 @@
 ####
 
 team_name = 'E2'
-strategy_name = 'Alternate'
+strategy_name = 'Collude but retaliate'
 strategy_description = 'Collude, then alternate.'
     
 def move(my_history, their_history, my_score, their_score):
@@ -20,9 +20,10 @@ def move(my_history, their_history, my_score, their_score):
     
     Returns 'c' or 'b' for collude or betray.
     '''
-    # This player colludes on even numbered rounds (first round is round #0).
-    if len(my_history)%2 == 0:
+    if len(my_history)==0: # It's the first round; collude.
         return 'c'
+    elif my_history[-1]=='c' and their_history[-1]=='b':
+        return 'b' # Betray if they were severely punished last time,      return 'b'
     else:
-        return 'b'
+        return 'c' # otherwise collude.
     

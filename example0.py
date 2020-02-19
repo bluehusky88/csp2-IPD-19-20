@@ -7,8 +7,11 @@
 ####
 
 team_name = 'E0'
-strategy_name = 'Collude'
-strategy_description = 'Always collude.'
+strategy_name = 'Betray if other player colludes, otherwise betray most of the time.'
+strategy_description = 'Betrays most of the time, if other player colludes, betray.'
+
+ 
+import random
     
 def move(my_history, their_history, my_score, their_score):
     '''Make my move based on the history with this player.
@@ -20,7 +23,11 @@ def move(my_history, their_history, my_score, their_score):
     
     Returns 'c' or 'b' for collude or betray.
     '''
-    
-    # This player always colludes.
-    return 'c'
-    
+
+    if 'c' in their_history[-10:]: # If the other player has betrayed within last 10 rounds, 
+        return 'b'               # Betray.
+    else:
+        if random.random()<0.1: # 10% of the other rounds
+            return 'c'         # Betray
+        else:
+            return 'b'         # but 90% of the time collude
