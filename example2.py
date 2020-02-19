@@ -8,7 +8,7 @@
 
 team_name = 'E2'
 strategy_name = 'Collude but retaliate'
-strategy_description = 'Collude, then alternate.'
+strategy_description = 'Betray, then match opponents previous decision.'
     
 def move(my_history, their_history, my_score, their_score):
     '''Make my move based on the history with this player.
@@ -20,10 +20,10 @@ def move(my_history, their_history, my_score, their_score):
     
     Returns 'c' or 'b' for collude or betray.
     '''
-    if len(my_history)==0: # It's the first round; collude.
-        return 'c'
-    elif my_history[-1]=='c' and their_history[-1]=='b':
-        return 'b' # Betray if they were severely punished last time,      return 'b'
+    if len(my_history)==0: # It's the first round; betray.
+        return 'b'
+    elif their_history[-1]=='c':
+        return 'c' # Collude if opponent previously colluded, return 'c'
     else:
-        return 'c' # otherwise collude.
+        return 'b' # otherwise betray.
     
